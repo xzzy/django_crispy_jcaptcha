@@ -21,9 +21,9 @@ INSTALLED_APPS needs to append 'django_crispy_jcaptcha'
 
 Instructions on how to ammend to your crispy form python file.
 
-   from django_crispy_jcaptcha.widget import CaptchaImages, CaptchaValidation
+    from django_crispy_jcaptcha.widget import CaptchaImages, CaptchaValidation
 
-   captcha = CharField(required=False,widget=CaptchaImages(attrs={}))
+    captcha = CharField(required=False,widget=CaptchaImages(attrs={}))
 
 Inside the meta form class you will need append this def for validation.
 
