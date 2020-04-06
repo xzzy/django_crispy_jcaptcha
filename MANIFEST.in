@@ -1,6 +1,4 @@
 include LICENSE
-
-recursive-include django_crispy_jcaptcha/migrations *.py
 recursive-include django_crispy_jcaptcha/static/images/jcaptcha *.jpg
 recursive-include django_crispy_jcaptcha/static/images/jcaptcha *.png
 recursive-include django_crispy_jcaptcha/static/css/jcaptcha *.css
