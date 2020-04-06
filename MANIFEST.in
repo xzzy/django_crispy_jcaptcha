@@ -1,5 +1,15 @@
 include LICENSE
-recursive-include *.py
+include admin.py
+include apps.py
+include __init__.py
+include models.py
+include README.md
+include urls.py
+include views.py
+include widget.py
+
+recursive-include static
+recursive-include migrations/
 recursive-include static/images/jcaptcha *.jpg
 recursive-include static/images/jcaptcha *.png
 recursive-include static/css/jcaptcha *.css
