@@ -1,0 +1,12 @@
+.jcaptcha-active { 
+    border: 2px solid red !important;
+}
+
+.jcaptcha-matches {
+border: 1px solid #000000; 
+padding: 3px; 
+margin: 2px;
+margin-right: 2px; 
+cursor: pointer;
+
+}
