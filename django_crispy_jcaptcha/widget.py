@@ -78,8 +78,8 @@ class CaptchaImages(Widget):
               image_div = image_div + "<img id='id_captcha_image_"+im['random_key']+"' onclick="+'"'+"jcaptcha.select('"+id_name+"','"+captcha.captcha_key+"','"+im['random_key']+"');"+'"'+" src='/jcaptcha/image-match/"+im['random_key']+".png' class='jcaptcha-matches' istyle='border: 1px solid #000000; padding: 3px; margin-right: 2px; cursor: pointer;'>"
 
          htmldata = ""
-         htmldata += "<link rel='stylesheet' href='/"+STATIC_URL+"/css/jcaptcha/style.css'>"
-         htmldata += "<script type='text/javascript' src='/"+STATIC_URL+"/js/jcaptcha/jcaptcha.js'></script>"
+         htmldata += "<link rel='stylesheet' href='"+STATIC_URL+"/css/jcaptcha/style.css'>"
+         htmldata += "<script type='text/javascript' src='"+STATIC_URL+"/js/jcaptcha/jcaptcha.js'></script>"
          htmldata += "<div id='jwidget_div_"+name+"'>"
          htmldata += "<div>Please select the matching image below: <img src='/jcaptcha/image-selection/"+captcha.captcha_key+".png' style='border: 1px solid #000000; padding: 3px; margin-right: 2px;'></div>"
          htmldata += "<div><br></div>"
