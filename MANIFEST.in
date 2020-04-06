@@ -1,0 +1,6 @@
+include LICENSE
+recursive-include *.py
+recursive-include static/images/jcaptcha *.jpg
+recursive-include static/images/jcaptcha *.png
+recursive-include static/css/jcaptcha *.css
+recursive-include static/js/jcaptcha *.js
