@@ -1,7 +1,6 @@
 from __future__ import unicode_literals
 from datetime import datetime, date, timedelta
 from django.conf import settings
-from django.core.urlresolvers import reverse
 from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.models import Group
@@ -15,10 +14,8 @@ from django.views.generic import TemplateView, ListView, DetailView, CreateView,
 from django.urls import reverse_lazy
 from django.utils.encoding import force_bytes
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
-from extra_views import ModelFormSetView
 import re
 from datetime import datetime, timedelta
-from dateutil.relativedelta import relativedelta
 import math
 from django.shortcuts import redirect
 from django.template import RequestContext
