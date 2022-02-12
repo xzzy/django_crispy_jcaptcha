@@ -84,7 +84,7 @@ class CaptchaImages(Widget):
          htmldata += "<div>Please select the matching image below: <img src='/jcaptcha/image-selection/"+captcha.captcha_key+".png' style='border: 1px solid #000000; padding: 3px; margin-right: 2px;'></div>"
          htmldata += "<div><br></div>"
          htmldata += "<div><b>Match selection</b></div>"
-         htmldata += "<div style='width: 250px'>"+image_div+"</div>"
+         htmldata += "<center><div style='min-width: 250px; max-width: 300px;'>"+image_div+"</div></center>"
          htmldata += "<div><input type='hidden' name='"+name+"' id='"+id_name+"'>"
          htmldata += "<div><br></div>"
          htmldata += "<div><br></div>"
