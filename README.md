@@ -31,3 +31,13 @@ Inside the meta form class you will need append this def for validation.
         CaptchaValidation(self.cleaned_data['captcha'], forms)
         return self.cleaned_data['captcha']
 
+
+# urls.py
+Add Urls, path or url depending on django version  
+
+url('^', include(jcaptchaurls))
+
+or
+
+path('', include(jcaptchaurls))
+
