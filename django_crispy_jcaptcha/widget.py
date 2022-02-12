@@ -26,13 +26,13 @@ class CaptchaImages(Widget):
               JCAPTCHA_EXPIRY_MINUTES=settings.JCAPTCHA_EXPIRY_MINUTES
 
          if hasattr(settings,'JCAPTCHA_CLEANUP_MINUTES'):
-              JCAPTCHA_CLEANUP_HOURS=settings.JCAPTCHA_CLEANUP_MINUTES
+              JCAPTCHA_CLEANUP_MINUTES=settings.JCAPTCHA_CLEANUP_MINUTES
          print (JCAPTCHA_EXPIRY_MINUTES)
          print (JCAPTCHA_CLEANUP_MINUTES)
 
          now = datetime.now()
          expiry = now + timedelta(minutes = JCAPTCHA_EXPIRY_MINUTES)
-         in_the_past = now - timedelta(hours=JCAPTCHA_CLEANUP_HOURS)
+         in_the_past = now - timedelta(minutes=JCAPTCHA_CLEANUP_MINUTES)
          cleanup_captchas = models.Captcha.objects.filter(expiry__lte=in_the_past).delete()
 
          id_name = 'id_'+name
