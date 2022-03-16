@@ -33,6 +33,9 @@ Inside the meta form class you will need append this def for validation.
 
 
 # urls.py
+Import this
+from django_crispy_jcaptcha import urls as jcaptchaurls
+
 Add Urls, path or url depending on django version  
 
 url('^', include(jcaptchaurls))
