@@ -29,10 +29,8 @@ from django_crispy_jcaptcha import models
 def getImagePrimary(request,hashkey,extension):
     pass
     PLUGIN_DIR = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'django_crispy_jcaptcha')
-    print (models.Captcha.objects.filter(captcha_key=hashkey))
     captcha_image = models.Captcha.objects.filter(captcha_key=hashkey)
     file_path = PLUGIN_DIR + captcha_image[0].captcha_image
-    print (file_path)
     if os.path.isfile(file_path) is True:
          the_file = open(file_path, 'rb')
          the_data = the_file.read()
@@ -44,7 +42,6 @@ def getImageHash(request,hashkey,extension):
     PLUGIN_DIR = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'django_crispy_jcaptcha')
     captcha_image = models.CaptchaImage.objects.filter(captcha_key=hashkey)
     file_path = PLUGIN_DIR + captcha_image[0].captcha_image
-    print (file_path)
     if os.path.isfile(file_path) is True:
          the_file = open(file_path, 'rb')
          the_data = the_file.read()
