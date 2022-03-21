@@ -27,6 +27,10 @@ class CaptchaImages(Widget):
          if hasattr(settings,'JCAPTCHA_CLEANUP_MINUTES'):
               JCAPTCHA_CLEANUP_MINUTES=settings.JCAPTCHA_CLEANUP_MINUTES
 
+         JCAPTCHA_MATCHES_CLASS='jcaptcha-matches'
+         if hasattr(settings,'JCAPTCHA_MATCHES_CLASS'):
+              JCAPTCHA_MATCHES_CLASS=settings.JCAPTCHA_MATCHES_CLASS
+
          now = datetime.now()
          expiry = now + timedelta(minutes = JCAPTCHA_EXPIRY_MINUTES)
          in_the_past = now - timedelta(minutes=JCAPTCHA_CLEANUP_MINUTES)
@@ -65,14 +69,15 @@ class CaptchaImages(Widget):
          image_rotation.append(images[22])
          image_rotation.append(images[23])
 
-        
+          
+
          random.shuffle(image_rotation) 
          for im in image_rotation:
              captcha_image = models.CaptchaImage.objects.create(captcha=captcha,captcha_key=im['random_key'],captcha_image=im['image'])
 
          image_div = ""
          for im in image_rotation:
-             image_div = image_div + "<img width='39px' height='39px' id='id_captcha_image_"+im['random_key']+"' onclick="+'"'+"jcaptcha.select('"+id_name+"','"+captcha.captcha_key+"','"+im['random_key']+"');"+'"'+" src='/jcaptcha/image-match/"+im['random_key']+".png' class='jcaptcha-matches' istyle='border: 1px solid #000000; padding: 3px; margin-right: 2px; cursor: pointer;'>"
+             image_div = image_div + "<img width='39px' height='39px' id='id_captcha_image_"+im['random_key']+"' onclick="+'"'+"jcaptcha.select('"+id_name+"','"+captcha.captcha_key+"','"+im['random_key']+"');"+'"'+" src='/jcaptcha/image-match/"+im['random_key']+".png' class='"+JCAPTCHA_MATCHES_CLASS+"' istyle='border: 1px solid #000000; padding: 3px; margin-right: 2px; cursor: pointer;'>"
 
          htmldata = ""
          htmldata += "<link rel='stylesheet' href='"+STATIC_URL+"/css/jcaptcha/style.css'>"
@@ -80,7 +85,7 @@ class CaptchaImages(Widget):
          htmldata += "<div id='jwidget_div_"+name+"'>"
          htmldata += "<div>Please select the matching image below: <img width='39px' height='39px' src='/jcaptcha/image-selection/"+captcha.captcha_key+".png' style='border: 1px solid #000000; padding: 3px; margin-right: 2px;'></div>"
          htmldata += "<div><br></div>"
-         htmldata += "<div><b>Match selection</b></div>"
+         htmldata += "<div><b>Choose matching image</b></div>"
          htmldata += "<center><div style='min-width: 250px; max-width: 300px;'>"+image_div+"</div></center>"
          htmldata += "<div><input type='hidden' name='"+name+"' id='"+id_name+"'>"
          htmldata += "<div><br></div>"
@@ -102,7 +107,6 @@ class CaptchaImages(Widget):
                          { 'image' : '/static/images/jcaptcha2/honeybee-bee-insect-honey-bug-33902.png', 'random_key' : hashlib.md5(os.urandom(32)).hexdigest()},
                          { 'image' : '/static/images/jcaptcha2/fish-pisces-sea-food-aquatics-animal-33888.png', 'random_key' : hashlib.md5(os.urandom(32)).hexdigest()},
                          { 'image' : '/static/images/jcaptcha2/palm-tree-green-nature-plant-33924.png', 'random_key' : hashlib.md5(os.urandom(32)).hexdigest()},
-                         { 'image' : '/static/images/jcaptcha2/palm-tree-green-nature-plant-33924.png', 'random_key' : hashlib.md5(os.urandom(32)).hexdigest()},
                          { 'image' : '/static/images/jcaptcha2/last-quarter-moon-half-planet-33908.png', 'random_key' : hashlib.md5(os.urandom(32)).hexdigest()},
                          { 'image' : '/static/images/jcaptcha2/last-quarter-moon-dark-half-33975.png', 'random_key' : hashlib.md5(os.urandom(32)).hexdigest()},
                          { 'image' : '/static/images/jcaptcha2/front-facing-baby-chick-chicken-food-33971.png', 'random_key' : hashlib.md5(os.urandom(32)).hexdigest()},
@@ -121,7 +125,6 @@ class CaptchaImages(Widget):
                          { 'image' : '/static/images/jcaptcha2/dizzy-star-shooting-favorite-33876.png', 'random_key' : hashlib.md5(os.urandom(32)).hexdigest()},
                          { 'image' : '/static/images/jcaptcha2/last-quarter-moon-with-face-phase-33909.png', 'random_key' : hashlib.md5(os.urandom(32)).hexdigest()},
                          { 'image' : '/static/images/jcaptcha2/bright-button-sun-dim-rays-33865.png', 'random_key' : hashlib.md5(os.urandom(32)).hexdigest()},
-                         { 'image' : '/static/images/jcaptcha2/elephant-wild-animal-mammal-huge-33882.png', 'random_key' : hashlib.md5(os.urandom(32)).hexdigest()},
                          { 'image' : '/static/images/jcaptcha2/elephant-wild-animal-mammal-huge-33882.png', 'random_key' : hashlib.md5(os.urandom(32)).hexdigest()},
                          { 'image' : '/static/images/jcaptcha2/tiger-wild-animal-forest-king-33962.png', 'random_key' : hashlib.md5(os.urandom(32)).hexdigest()},
                          { 'image' : '/static/images/jcaptcha2/blowfish-fish-sea-food-aquatic-animal-33864.png', 'random_key' : hashlib.md5(os.urandom(32)).hexdigest()},
@@ -195,7 +198,6 @@ class CaptchaImages(Widget):
                          { 'image' : '/static/images/jcaptcha2/waxing-crescent-moon-phase-dark-33976.png', 'random_key' : hashlib.md5(os.urandom(32)).hexdigest()},
                          { 'image' : '/static/images/jcaptcha2/monkey-primate-tail-human-forest-33916.png', 'random_key' : hashlib.md5(os.urandom(32)).hexdigest()},
                          { 'image' : '/static/images/jcaptcha2/monkey-face-human-primate-33915.png', 'random_key' : hashlib.md5(os.urandom(32)).hexdigest()},
-                         { 'image' : '/static/images/jcaptcha2/dog-pet-adopt-human-friend-animal-33941 (1).png', 'random_key' : hashlib.md5(os.urandom(32)).hexdigest()},
                          { 'image' : '/static/images/jcaptcha2/four-leaf-clover-green-tree-33889.png', 'random_key' : hashlib.md5(os.urandom(32)).hexdigest()},
                          { 'image' : '/static/images/jcaptcha2/crocodile-aquatica-animal-wild-33872.png', 'random_key' : hashlib.md5(os.urandom(32)).hexdigest()},
                          { 'image' : '/static/images/jcaptcha2/bird-feather-aves-animal-33860.png', 'random_key' : hashlib.md5(os.urandom(32)).hexdigest()},
