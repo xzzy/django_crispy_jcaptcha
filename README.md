@@ -15,6 +15,9 @@ These are defautls but can also be added to settings.py if you wish to change th
     JCAPTCHA_EXPIRY_MINUTES=30
     JCAPTCHA_CLEANUP_MINUTES=1440
 
+For the colour image pack add this to settings.py
+    JCAPTCHA_IMAGE_LIST = 'jcaptcha2'
+
 INSTALLED_APPS needs to append 'django_crispy_jcaptcha'
 
 # forms.py
