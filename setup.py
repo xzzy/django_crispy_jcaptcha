@@ -1,7 +1,7 @@
 from setuptools import setup
 
 setup(name='django_crispy_jcaptcha',
-      version='1.2',
+      version='1.3',
       description='Django Crispy Form Image Captcha',
       url='https://github.com/xzzy/django_crispy_jcaptcha',
       author='Jason Moore',
